@@ -21,6 +21,13 @@ namespace ariel {
 
         size_t size() const;
 
+        // for tidy
+        MagicalContainer(const MagicalContainer&) = default;
+        MagicalContainer& operator=(const MagicalContainer&) = default;
+        MagicalContainer(MagicalContainer&&) = default;
+        MagicalContainer& operator=(MagicalContainer&&)  = default;
+
+
         class AscendingIterator {
         private:
             const MagicalContainer *_container;
@@ -33,6 +40,10 @@ namespace ariel {
             AscendingIterator(AscendingIterator const &iterator);
 
             ~AscendingIterator();
+
+            // for tidy
+            AscendingIterator(AscendingIterator&&) = default;
+            AscendingIterator& operator=(AscendingIterator&&)  = default;
 
             AscendingIterator & operator=(AscendingIterator other);
 
@@ -71,6 +82,10 @@ namespace ariel {
 
             ~SideCrossIterator();
 
+            // for tidy
+            SideCrossIterator(SideCrossIterator&&) = default;
+            SideCrossIterator& operator=(SideCrossIterator&&)  = default;
+
             SideCrossIterator &operator=(SideCrossIterator other);
 
             bool operator==(const SideCrossIterator& other) const;
@@ -105,6 +120,9 @@ namespace ariel {
             explicit PrimeIterator(const MagicalContainer& container);
 
             ~PrimeIterator();
+            // for tidy
+            PrimeIterator(PrimeIterator&&) = default;
+            PrimeIterator& operator=(PrimeIterator&&)  = default;
 
             PrimeIterator &operator=(PrimeIterator other);
 
